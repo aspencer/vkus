@@ -10,20 +10,14 @@ Recipe
 
 Plan
 ```
-	date  {timestamp} // TS for start date of the meal plan
-	plan  [{PlanDay}] // Array of `PlanDays`
-```
-
-PlanDay
-```
-	dow     {string} // Monday
-	recipes [Recipe.id] // Recipes associated with this day
-	tags    [{string}] // chris-friendly, quick, yoyo
-	notes   {string} // "Friends coming over, XMAS, Need something fast"
+	date     {timestamp} // TS for start date of the meal plan
+	days     {number} // Number of days
+	recipes  [{number}] // Included Recipes [Recipe.id, Recipe.id]
+	notes    {string} // "Friends coming over on Monday, XMAS, Need something fast"
 ```
 
 RecipeList
 ```
 	type    {string} // Standard Rotation | Flavor | Once-in-awhile | Sides | New
-	recipes [Recipe.id, Recipe.id] // List of recipes in this list
+	recipes [{number}] // Included Recipes [Recipe.id, Recipe.id]
 ```
