@@ -5,7 +5,7 @@ Recipe
 	image     {string} // image link
 	link      {string} // recipe link - paprika, others
 	tags      [{string}] // tags [chris-friendly, kid-friendly, quick]
-	lastUsed  {date} // date that this recipe was last used
+	lastUsed  {number} // timestamp that this recipe was last used
 ```
 
 Plan
