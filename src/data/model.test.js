@@ -10,7 +10,6 @@ it('should create default objects from scratch', () => {
 });
 
 it('should create full object from partial data', () => {
-	/** @var Recipe */
 	const model = {
 		foo: null,
 		baz: null,
@@ -27,7 +26,6 @@ it('should create full object from partial data', () => {
 });
 
 it('should create respect extra data on the object', () => {
-	/** @var Recipe */
 	const model = {
 		foo: null,
 		baz: null,
@@ -35,7 +33,7 @@ it('should create respect extra data on the object', () => {
 	const target = {
 		foo: 'bar',
 		baz: 1234,
-		blonk: false,
+		blonk: false, // Extra Data not in recipe model
 	};
 	const result = create(model, target);
 
@@ -44,5 +42,6 @@ it('should create respect extra data on the object', () => {
 	// title, lastUsed should be set
 	expect(result.foo).toBe(target.foo);
 	expect(result.baz).toBe(target.baz);
+	// Extra data should exist on the result model
 	expect(result.blonk).toBe(target.blonk);
 });

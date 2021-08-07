@@ -1,4 +1,4 @@
-import {recipe, createRecipe} from './recipe';
+import { recipe, createRecipe } from './recipe';
 
 it('should create default objects from scratch', () => {
 	const emptyRecipe = createRecipe();
@@ -25,7 +25,7 @@ it('should create respect extra data on the object', () => {
 	const targetRecipe = {
 		title: 'Test Title',
 		lastUsed: 1234,
-		scale: 2,
+		scale: 2, // Extra Data not in recipe model
 	};
 	const resultRecipe = createRecipe(targetRecipe);
 
@@ -34,5 +34,6 @@ it('should create respect extra data on the object', () => {
 	// title, lastUsed should be set
 	expect(resultRecipe.lastUsed).toBe(targetRecipe.lastUsed);
 	expect(resultRecipe.title).toBe(targetRecipe.title);
+	// Extra data should exist on the result model
 	expect(resultRecipe.scale).toBe(targetRecipe.scale);
 });

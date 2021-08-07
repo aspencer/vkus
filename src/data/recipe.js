@@ -1,4 +1,4 @@
-import {create} from './model';
+import { create } from './model';
 
 /**
  * @typedef {Object} Recipe
@@ -27,5 +27,5 @@ export const recipe = {
  * @return {Recipe}
  */
 export const createRecipe = function (targetRecipe={}) {
-	return create(recipe, targetRecipe);;
+	return create(recipe, targetRecipe);
 };
