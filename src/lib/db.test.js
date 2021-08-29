@@ -48,20 +48,3 @@ describe('upgradeSchema', () => {
 	});
 
 });
-
-
-/*
-export function upgradeSchema({ db, oldVersion, newVersion, tx, changes }) {
-	// Start at the next version up from the current DB version
-	let upgradeVersion = oldVersion + 1;
-	// Check the change set for updates between the target version and the current version and apply them
-	while (upgradeVersion <= newVersion) {
-		const upgrade = changes[upgradeVersion];
-		if (typeof upgrade === 'function') {
-			upgrade({ db, tx });
-		}
-
-		upgradeVersion++;
-	}
-}
-*/
