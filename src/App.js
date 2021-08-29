@@ -1,6 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 
+// import { vkusDB } from './data/db';
+// import { addRecipe } from './data/recipe';
+
 function App() {
   return (
     <div className="App">
@@ -23,3 +26,12 @@ function App() {
 }
 
 export default App;
+
+/**
+ * TEST FUNCTION - NO UI YET - UNCOMMENT TO TEST
+ */
+// window.addNewRecipe = async (targetRecipe) => {
+// 	const db = await vkusDB();
+// 	const recipe = await addRecipe(db, targetRecipe);
+// 	console.log('NEW RECIPE', recipe);
+// };
