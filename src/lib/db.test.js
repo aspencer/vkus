@@ -1,4 +1,4 @@
-import { upgradeSchema } from "./db";
+import { upgradeSchema } from './db';
 
 describe('upgradeSchema', () => {
 	it('executes an upgrade function if it exists on the changes object', () => {
@@ -46,5 +46,4 @@ describe('upgradeSchema', () => {
 		expect(changeV1).not.toHaveBeenCalled();
 		expect(changeV3).toHaveBeenCalled();
 	});
-
 });

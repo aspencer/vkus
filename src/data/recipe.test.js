@@ -10,7 +10,6 @@ import {
 require('fake-indexeddb/auto');
 
 describe('createRecipe', () => {
-
 	it('should create default objects from scratch', () => {
 		const emptyRecipe = createRecipe();
 		expect(emptyRecipe).toStrictEqual(recipe);
@@ -82,4 +81,4 @@ describe('upgradeRecipeSchema', () => {
 		expect(store.index('lastUsed')).toBeTruthy();
 		expect(store.index('title')).toBeTruthy();
 	});
-})
+});

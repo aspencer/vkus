@@ -30,7 +30,7 @@ export const recipe = {
  * @param {object} targetRecipe
  * @return {Recipe}
  */
-export const createRecipe = function (targetRecipe={}) {
+export const createRecipe = function (targetRecipe = {}) {
 	return create(recipe, targetRecipe);
 };
 
@@ -72,10 +72,14 @@ export const getRecipe = async (db, key) => {
  * @param {number} params.newVersion New DB version
  * @param {object} params.tx IDB upgrade transaction
  */
-export const upgradeRecipeSchema = function ({ db, oldVersion, newVersion, tx }) {
-
+export const upgradeRecipeSchema = function ({
+	db,
+	oldVersion,
+	newVersion,
+	tx,
+}) {
 	const changes = {
-		1: ({db}) => {
+		1: ({ db }) => {
 			// Create a store of objects
 			const store = db.createObjectStore(RECIPE_STORE, {
 				// The 'id' property of the object will be the key.

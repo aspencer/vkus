@@ -20,6 +20,6 @@ export const recipeList = {
  * @param {object} targetRecipeList
  * @return {RecipeList}
  */
-export const createRecipeList = function (targetRecipeList={}) {
+export const createRecipeList = function (targetRecipeList = {}) {
 	return create(recipeList, targetRecipeList);
 };

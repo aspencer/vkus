@@ -24,6 +24,6 @@ export const plan = {
  * @param {object} targetPlan
  * @return {Plan}
  */
-export const createPlan = function (targetPlan={}) {
+export const createPlan = function (targetPlan = {}) {
 	return create(plan, targetPlan);
 };
