@@ -10,7 +10,6 @@ import {
 require('fake-indexeddb/auto');
 
 describe('createRecipe', () => {
-
 	it('should create default objects from scratch', () => {
 		const emptyRecipe = createRecipe();
 		expect(emptyRecipe).toStrictEqual(recipe);
@@ -60,7 +59,7 @@ describe('addRecipe', () => {
 		const db = await vkusDB();
 		const recipe = await addRecipe(db, targetRecipe);
 
-		// Check recpie on target db
+		// Check recipe on target db
 		const checkRecipe = await getRecipe(db, recipe.id);
 		expect(checkRecipe.id).toBe(recipe.id);
 		expect(checkRecipe.title).toBe(targetRecipe.title);
@@ -82,4 +81,4 @@ describe('upgradeRecipeSchema', () => {
 		expect(store.index('lastUsed')).toBeTruthy();
 		expect(store.index('title')).toBeTruthy();
 	});
-})
+});

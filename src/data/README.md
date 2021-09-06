@@ -1,4 +1,5 @@
 Recipe
+
 ```
 	id        {number} [Required] // ex: 1234
 	title     {string} [Required] // ex: Sausage and Veggies
@@ -9,6 +10,7 @@ Recipe
 ```
 
 Plan
+
 ```
 	date     {timestamp} // TS for start date of the meal plan
 	days     {number} // Number of days
@@ -17,6 +19,7 @@ Plan
 ```
 
 RecipeList
+
 ```
 	type    {string} // Standard Rotation | Flavor | Once-in-awhile | Sides | New
 	recipes [{number}] // Included Recipes [Recipe.id, Recipe.id]

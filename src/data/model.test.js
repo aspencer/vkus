@@ -1,10 +1,10 @@
-import {create} from './model';
+import { create } from './model';
 
 it('should create default objects from scratch', () => {
 	const model = {
 		foo: null,
 		baz: null,
-	}
+	};
 	const empty = create(model);
 	expect(empty).toStrictEqual(model);
 });
@@ -13,7 +13,7 @@ it('should create full object from partial data', () => {
 	const model = {
 		foo: null,
 		baz: null,
-	}
+	};
 	const target = {
 		foo: 'bar',
 	};
@@ -29,7 +29,7 @@ it('should create respect extra data on the object', () => {
 	const model = {
 		foo: null,
 		baz: null,
-	}
+	};
 	const target = {
 		foo: 'bar',
 		baz: 1234,

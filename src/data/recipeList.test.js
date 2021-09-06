@@ -30,7 +30,9 @@ it('should create respect extra data on the object', () => {
 	const resultRecipeList = createRecipeList(targetRecipeList);
 
 	// full RecipeList object
-	expect(Object.keys(resultRecipeList)).not.toStrictEqual(Object.keys(recipeList));
+	expect(Object.keys(resultRecipeList)).not.toStrictEqual(
+		Object.keys(recipeList)
+	);
 	// id, type should be set
 	expect(resultRecipeList.id).toBe(targetRecipeList.id);
 	expect(resultRecipeList.type).toBe(targetRecipeList.type);
