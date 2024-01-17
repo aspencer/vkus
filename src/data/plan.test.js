@@ -1,4 +1,5 @@
-import { plan, createPlan } from './plan';
+import { expect, it } from 'vitest';
+import { plan, createPlan } from './plan'; 
 
 it('should create default objects from scratch', () => {
 	const emptyPlan = createPlan();

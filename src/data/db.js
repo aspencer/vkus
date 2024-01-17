@@ -1,4 +1,4 @@
-import { openDB } from 'idb/with-async-ittr.js';
+import { openDB } from 'idb';
 
 import { upgradeSchema } from '../lib/db';
 import { upgradeRecipeSchema } from './recipe';
@@ -9,7 +9,7 @@ const DB_VERSION = 1;
 export const KEYVAL_STORE = 'app';
 
 function dbPromise() {
-	openDB(DB_NAME, DB_VERSION, {
+	return openDB(DB_NAME, DB_VERSION, {
 		upgrade(db, oldVersion, newVersion, tx) {
 			// General changes related to the app, keyval store
 			const changes = {
