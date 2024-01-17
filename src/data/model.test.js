@@ -1,4 +1,5 @@
-import { create } from './model';
+import { expect, it } from 'vitest';
+import { create } from './model'; 
 
 it('should create default objects from scratch', () => {
 	const model = {

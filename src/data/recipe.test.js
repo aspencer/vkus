@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest'; 
 import { vkusDB } from './db';
 import {
 	recipe,
@@ -7,7 +8,7 @@ import {
 	RECIPE_STORE,
 } from './recipe';
 
-require('fake-indexeddb/auto');
+import 'fake-indexeddb/auto';
 
 describe('createRecipe', () => {
 	it('should create default objects from scratch', () => {

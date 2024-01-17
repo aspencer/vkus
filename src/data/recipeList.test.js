@@ -1,4 +1,5 @@
-import { recipeList, createRecipeList } from './RecipeList';
+import { expect, it } from 'vitest'; 
+import { recipeList, createRecipeList } from './recipeList.js'; 
 
 it('should create default objects from scratch', () => {
 	const emptyRecipeList = createRecipeList();

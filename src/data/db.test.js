@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest';
 import {
 	vkusDB,
 	KEYVAL_STORE,
@@ -8,7 +9,7 @@ import {
 	getValues,
 } from './db';
 
-require('fake-indexeddb/auto');
+import 'fake-indexeddb/auto'; 
 
 describe('App Key-Value Storage', () => {
 	it('should create a app-level key-value store', async () => {
@@ -16,8 +17,8 @@ describe('App Key-Value Storage', () => {
 
 		// Recipe Store should exist
 		const includesRecipeStore = db.objectStoreNames.includes(KEYVAL_STORE);
-		expect(includesRecipeStore).toBe(true);
-	});
+		expect(includesRecipeStore).toBe(true); 
+	}); 
 
 	it('should allow getting/setting key-value pairs', async () => {
 		let keys = await getValues();

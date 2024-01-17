@@ -1,11 +1,12 @@
-import { upgradeSchema } from './db';
+import { describe, expect, it, vi } from 'vitest';
+import { upgradeSchema } from './db'; 
 
 describe('upgradeSchema', () => {
 	it('executes an upgrade function if it exists on the changes object', () => {
 		const db = null;
 		const tx = null;
 
-		const changeV1 = jest.fn();
+		const changeV1 = vi.fn();
 
 		const changes = {
 			1: changeV1,
@@ -26,8 +27,8 @@ describe('upgradeSchema', () => {
 		const db = null;
 		const tx = null;
 
-		const changeV1 = jest.fn();
-		const changeV3 = jest.fn();
+		const changeV1 = vi.fn();
+		const changeV3 = vi.fn();
 
 		const changes = {
 			1: changeV1,
