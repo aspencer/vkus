@@ -1,27 +1,25 @@
-import { create } from './model';
-
 import { upgradeSchema } from '../lib/db';
 
 export const RECIPE_STORE = 'recipes';
 
-/**
- * @typedef {Object} Recipe
- * @property {!number} id Unique Identifier for the recipe
- * @property {!string} title Name of the receipe
- * @property {?string} image Link to image for recipe card
- * @property {?string} link External link to recipe (paprika, blog, online)
- * @property {[string]} tags Applicable tags (ex: 'kid-friendly', 'quick', 'vegan')
- * @property {number} lastUsed Timestamp for when the recipe was last in a plan
- */
+export interface Recipe {
+	/** Unique Identifier for the recipe */
+	id: string,
 
-/** @type Recipe */
-export const recipe = {
-	id: null,
-	title: null,
-	image: null,
-	link: null,
-	tags: [],
-	lastUsed: 0,
+	/** Name of the receipe */
+	title: string,
+
+	/** Link to image for recipe */
+	image?: string,
+
+	/** External link to recipe (paprika, blogpost) */
+	link?: string,
+
+	/** Applicable tags (ex: 'kid-friendly', 'quick', 'vegan') */
+	tags: Array<string>,
+
+	/** Timestamp for when the recipe was last in a plan */
+	lastUsedTs: number,
 };
 
 /**
@@ -30,8 +28,36 @@ export const recipe = {
  * @param {object} targetRecipe
  * @return {Recipe}
  */
-export const createRecipe = function (targetRecipe = {}) {
-	return create(recipe, targetRecipe);
+export const createRecipe = function (targetRecipe: Object = {}): Recipe {
+	const data: Object = {
+		recipes: [], // default to empty
+		...targetRecipe
+	}
+
+	const recipe = <Recipe>data;
+
+	if (typeof recipe.id !== 'string') {
+		recipe.id = crypto.randomUUID();
+	}
+	if ('title' in recipe && typeof recipe.title !== 'string') {
+		recipe.title = String(recipe.title);
+	}
+	if ('image' in recipe && typeof recipe.image !== 'string') {
+		recipe.image = String(recipe.image);
+	}
+	if ('link' in recipe && typeof recipe.link !== 'string') {
+		recipe.link = String(recipe.link);
+	}
+	if ('lastUsedTs' in recipe && !Number.isInteger(recipe.lastUsedTs)) {
+		recipe.lastUsedTs = 0;
+	}
+
+	if (!Array.isArray(recipe.tags)) {
+		recipe.tags = [];
+	}
+	// Todo[tags] : validate types
+	
+	return recipe;
 };
 
 /**
@@ -43,9 +69,6 @@ export const createRecipe = function (targetRecipe = {}) {
  */
 export const addRecipe = async (db, targetRecipe) => {
 	const recipe = createRecipe(targetRecipe);
-
-	// default key will be returned
-	delete recipe.id;
 
 	recipe.id = await db.add(RECIPE_STORE, recipe);
 
@@ -88,7 +111,7 @@ export const upgradeRecipeSchema = function ({
 				autoIncrement: true,
 			});
 			// Create an index on the 'date' property of the objects.
-			store.createIndex('lastUsed', 'lastUsed');
+			store.createIndex('lastUsedTs', 'lastUsedTs');
 			store.createIndex('title', 'title');
 		},
 	};
