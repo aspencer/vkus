@@ -34,7 +34,7 @@ export const createPlan = function (targetPlan: Object = {}): MealPlan {
 
 	const plan = <MealPlan>data;
 
-	if ('id' in plan && typeof plan.id !== 'string') {
+	if (typeof plan.id !== 'string') {
 		plan.id = crypto.randomUUID();
 	}
 	if ('datets' in plan && !Number.isInteger(plan.datets)) {
