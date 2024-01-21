@@ -2,6 +2,47 @@ import { upgradeSchema } from '../lib/db';
 
 export const RECIPE_STORE = 'recipes';
 
+export const recipeTests: Array<Recipe> = [
+  {
+    id: '1233-1111-1234-1',
+    title: 'Carbonara',
+    lastUsedTs: Date.parse('2024-11-12'),
+    tags: ['staple', 'pasta'],
+  },
+  {
+    id: '1233-1111-1234-2',
+    title: 'Honey Lime Chicken',
+    lastUsedTs: Date.parse('2024-11-14'),
+    tags: ['chicken'],
+  },
+  {
+    id: '1233-1111-1234-3',
+    title: 'Chili',
+    lastUsedTs: Date.parse('2024-11-01'),
+    tags: ['beef'],
+  },
+  {
+    id: '1233-1111-1234-4',
+    title: 'Chicken Pasta Peppers',
+    lastUsedTs: Date.parse('2024-11-01'),
+    tags: ['chicken', 'pasta', 'kid-friendly'],
+  },
+  {
+    id: '1233-1111-1234-5',
+    title: 'Quiche',
+    lastUsedTs: Date.parse('2024-11-11'),
+    tags: ['staple'],
+  },
+  {
+    id: '1233-1111-1234-4',
+    title: 'Shepherd\'s Pie',
+    lastUsedTs: Date.parse('2023-11-12'),
+    tags: ['stometimes', 'beef'],
+  },
+];
+
+
+
 export interface Recipe {
   /** Unique Identifier for the recipe */
   id: string;
