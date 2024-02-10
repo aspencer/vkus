@@ -8,6 +8,7 @@ function App() {
     <>
       <div className="my-20">
         <RecipeList
+          testid='default-list'
           recipes={recipeTests}
         />
       </div>
